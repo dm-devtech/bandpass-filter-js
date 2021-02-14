@@ -20,4 +20,8 @@ describe('edge cases', () => {
   test('error thrown when no frequencies given', () => {
     expect(() => {test.filter(20, 9000, [])}).toThrow("No frequencies given")
   })
+
+  test('array includes non numbers', () => {
+    expect(() => {test.filter(20, 9000, ["twenty", "thousand"])}).toThrow("Frequencies must be numbers")
+  })
 })
