@@ -1,6 +1,7 @@
 class Bandpass {
 
-filter(min, max, array){
+filter(minimum=40, maximum=1000, freqs){
+  let [min, max, array] = this.argumentValidation(minimum, maximum, freqs)
   this.inputValidation(min, max, array)
 
   let filteredFreqs = []
@@ -11,6 +12,14 @@ filter(min, max, array){
   })
 
   return filteredFreqs
+}
+
+argumentValidation(min, max, array){
+  let args = []
+  Array.isArray(min) === true ? args.push(40) : args.push(min)
+  Array.isArray(min) === true ? args.push(1000) : args.push(max)
+  Array.isArray(min) === true ? args.push(min) : args.push(array)
+  return args
 }
 
 inputValidation(min, max, array) {

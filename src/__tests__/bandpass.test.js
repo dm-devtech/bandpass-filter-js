@@ -24,4 +24,8 @@ describe('edge cases', () => {
   test('array includes non numbers', () => {
     expect(() => {test.filter(20, 9000, ["twenty", "thousand"])}).toThrow("Frequencies must be numbers")
   })
+
+  test('minimum and maxnot given defaults to 40 and 1000 respectively ', () => {
+    expect(test.filter([10,20,50,1000,5000])).toEqual([40,40,50,1000,1000])
+  })
 })
